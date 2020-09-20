@@ -1,0 +1,47 @@
+<%- include("../partials/header.ejs") %>
+
+<p> <%= kitties.name%></p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <p class="lead">Kittie Forum</p>
+            <div class="list-group">
+                <li class="list-group-item active">info1</li>
+                <li class="list-group-item">info1</li>
+                <li class="list-group-item">info1</li>
+
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="thumbnail">
+                <img class="img-responsive" src="<%= kitties.image%>" alt="">
+                <div class="caption-full">
+                    <h4 class="pull-right">Eat Fish Every Day</h4>
+                    <h4><a href="<%= kitties.name%>"><p><%= kitties.description%></p></a></h4>
+
+                </div>
+            </div>
+            <div class="well">
+                <div class="text-right">
+                    <a class='btn btn-success' href="/campgrounds/<%= kitties._id %>/comments/new">Make Comments</a>
+                </div>
+                <hr>
+                <% kitties.comments.forEach(function (comment) { %>
+                    <div class="row">
+                        <div class="col-md-12">
+                           <strong><%=comment.author%></strong>
+                            <span class="pull-right">10 days ago</span>
+                            <p>
+                                <strong></strong> - <%= comment.text%>
+                            </p>
+                        </div>
+                    </div>
+
+              <%  })%>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<%- include("../partials/footer.ejs") %>
